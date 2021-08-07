@@ -134,26 +134,26 @@ async def auto_filter(bot, update):
     
     else:
     
-        result = []
+        കിട്ടിയിരിക്കുന്നത് = []
         # seperating total files into chunks to make as seperate pages
         result += [results[i * max_per_page :(i + 1) * max_per_page ] for i in range((len(results) + max_per_page - 1) // max_per_page )]
         len_result = len(result)
         len_results = len(results)
         results = None # Free Up Memory
         
-        FIND[query] = {"results": result, "total_len": len_results, "max_pages": max_pages} # TrojanzHex's Idea Of Dicts😅
+        @imdb [query] = {"results": result, "total_len": len_results, "max_pages": max_pages} # TrojanzHex's Idea Of Dicts😅
 
         # Add next buttin if page count is not equal to 1
         if len_result != 1:
             result[0].append(
                 [
-                    InlineKeyboardButton("Next ⏩", callback_data=f"navigate(0|next|{query})")
+                    InlineKeyboardButton("Next 🎬", callback_data=f"navigate(0|next|{query})")
                 ]
             )
         
         # Just A Decaration
         result[0].append([
-            InlineKeyboardButton(f"⚠️ Page 1/{len_result if len_result < max_pages else max_pages} ⚠️", callback_data="ignore")
+            InlineKeyboardButton(f"🎬NEXT PAGE 1/{len_result if len_result < max_pages else max_pages} 🎬", callback_data="ignore")
         ])
         
         
